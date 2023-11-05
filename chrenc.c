@@ -19,7 +19,7 @@ int iwrite_file(char *path, char *content, int len) {
 
 int iread_img_file(char *path, struct iimage *image) {
     char *fcontent;
-    image->size = read_file(path, &fcontent);
+    image->size = read_file(path, &fcontent)-8;
     if(*((int*)fcontent) != CHRNUM) {
         free(fcontent);
         return -1;
